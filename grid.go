@@ -49,15 +49,15 @@ func (l line) mostLeftSolution(clues []clue) (clueStart []int) {
 func (l line) mostRightSolution(clues []clue) (clueStart []int) {
 	clueIx := len(clues) - 1
 	clueStart = make([]int, len(clues))
+	clueStart[clueIx] = len(l) - 1
 	// Same as for the left but we start from the right and work back
-	for i := len(l); i >= 0; i-- {
+	for i := len(l) - 1; i >= 0; i-- {
 		blockLength := clueStart[clueIx] - i + 1
 		switch l[i] {
 		case white:
 			if blockLength == int(clues[clueIx])+1 {
 				clueIx--
 			}
-
 			clueStart[clueIx] = i - 1
 		case black:
 			if blockLength == int(clues[clueIx])+1 {

@@ -1,3 +1,3 @@
 module github.com/woutersmeenk/gonogram
 
-go 1.13
+go 1.14
